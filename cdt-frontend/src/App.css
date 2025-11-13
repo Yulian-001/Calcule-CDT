@@ -1,0 +1,518 @@
+/* Reset y estilos base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  text-align: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+}
+
+.App-header {
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Contenedor principal del dashboard */
+.dashboard-container {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  min-height: 80vh;
+  width: 100%;
+}
+
+/* Header del dashboard */
+.dashboard-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.user-welcome {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.user-subtitle {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-bottom: 30px;
+}
+
+.user-info {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 15px;
+  border-radius: 10px;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+/* Contenido principal */
+.dashboard-content {
+  padding: 50px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Sección de características */
+.features-section {
+  margin-bottom: 50px;
+}
+
+.section-title {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.feature-card {
+  background: #f8f9fa;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #e9ecef;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.feature-card h3 {
+  color: #333;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+}
+
+.feature-card p {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Sección del calculador */
+.calculator-section {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  padding: 40px;
+  border-radius: 15px;
+  color: white;
+  margin-top: 40px;
+}
+
+.calculator-section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.calculator-section p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+.calculator-btn {
+  background: white;
+  color: #f5576c;
+  border: none;
+  padding: 15px 40px;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.calculator-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Botón de logout */
+.logout-section {
+  margin-top: 50px;
+  padding-top: 30px;
+  border-top: 1px solid #e9ecef;
+}
+
+.logout-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* ===== ESTILOS PARA LOGIN/REGISTER ===== */
+.auth-container {
+  display: flex;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  min-height: 600px;
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.auth-left {
+  flex: 1;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  position: relative;
+}
+
+.auth-left h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.auth-left p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  text-align: center;
+}
+
+.auth-right {
+  flex: 1;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.forms-container {
+  position: relative;
+  width: 100%;
+  min-height: 400px;
+}
+
+.form-wrapper {
+  position: absolute;
+  top: -10vh;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 0.6s ease-in-out;
+  pointer-events: none;
+}
+
+.form-wrapper.active {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: all;
+}
+
+.form-wrapper.slide-left {
+  transform: translateX(-50px);
+}
+
+/* Estilos de formularios */
+.auth-form {
+  max-width: 350px;
+  margin: 0 auto;
+  text-align: left;
+  width: 100%;
+}
+
+.auth-form h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #333;
+  font-weight: 600;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #e1e5e9;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.form-group input:disabled {
+  background-color: #f8f9fa;
+  opacity: 0.7;
+}
+
+/* Botones */
+.auth-btn {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+  font-family: inherit;
+}
+
+.auth-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.auth-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Botones de toggle */
+.toggle-container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.toggle-text {
+  color: #666;
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+}
+
+.toggle-btn {
+  background: transparent;
+  border: 2px solid #667eea;
+  color: #667eea;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+
+.toggle-btn:hover {
+  background: #667eea;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Mensajes de error */
+.error-message {
+  background: #fee;
+  color: #c33;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #fcc;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* Loading */
+.loading-container {
+  color: white;
+  font-size: 1.2rem;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+  .App {
+    padding: 10px;
+    align-items: flex-start;
+  }
+  
+  .dashboard-container {
+    min-height: auto;
+    border-radius: 15px;
+  }
+  
+  .dashboard-header {
+    padding: 30px 15px;
+  }
+  
+  .user-welcome {
+    font-size: 2rem;
+  }
+  
+  .user-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .dashboard-content {
+    padding: 30px 15px;
+  }
+  
+  .section-title {
+    font-size: 1.7rem;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .feature-card {
+    padding: 25px 20px;
+  }
+  
+  .calculator-section {
+    padding: 30px 20px;
+    margin: 30px 0;
+  }
+  
+  .calculator-section h2 {
+    font-size: 1.7rem;
+  }
+
+  /* Responsive para auth */
+  .auth-container {
+    flex-direction: column;
+    min-height: auto;
+    margin: 10px;
+  }
+  
+  .auth-left {
+    padding: 30px 20px;
+    min-height: 200px;
+  }
+  
+  .auth-left h1 {
+    font-size: 2rem;
+  }
+  
+  .auth-right {
+    padding: 40px 20px;
+    min-height: 500px;
+  }
+  
+  .forms-container {
+    min-height: 450px;
+  }
+  
+  .auth-form {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .user-welcome {
+    font-size: 1.7rem;
+  }
+  
+  .user-subtitle {
+    font-size: 1rem;
+  }
+  
+  .dashboard-header {
+    padding: 25px 15px;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+  }
+  
+  .feature-card {
+    padding: 20px 15px;
+  }
+  
+  .feature-icon {
+    font-size: 2.5rem;
+  }
+
+  /* Responsive para auth en móviles pequeños */
+  .auth-container {
+    margin: 5px;
+    border-radius: 15px;
+  }
+  
+  .auth-left {
+    padding: 25px 15px;
+    min-height: 150px;
+  }
+  
+  .auth-left h1 {
+    font-size: 1.7rem;
+  }
+  
+  .auth-left p {
+    font-size: 1rem;
+  }
+  
+  .auth-right {
+    padding: 30px 15px;
+  }
+  
+  .auth-form h2 {
+    font-size: 1.7rem;
+    margin-bottom: 25px;
+  }
+  
+  .form-group input {
+    padding: 12px;
+  }
+  
+  .auth-btn {
+    padding: 12px;
+  }
+}

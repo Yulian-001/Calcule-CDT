@@ -1,0 +1,106 @@
+import React, { createContext, useState, useContext, useEffect } from 'react';
+import { authAPI } from '../services/api';
+
+//? Crear el context
+
+const AuthContext = createContext();
+
+//? Componente proveedor
+
+export const AuthProvider = ({ children }) => {
+    const [user , setUser] = useState(null);
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [loading, setLoading] = useState (true);
+
+    //? Verificar autenticacion al cargar la app
+
+    useEffect(() =>{
+        const token = localStorage.getItem('token');
+        const userData = localStorage.getItem('user');
+
+        if(token && userData) {
+            setUser(JSON.parse(userData));
+            setIsAuthenticated(true);
+        }
+        setLoading(false);
+    },[]);
+
+    //? Funcion login 
+
+    const login = async (email, password) => {
+        try{
+            const response = await authAPI.login({ email, password });
+            const { token, user } = response.data;
+
+            localStorage.setItem('token', token);
+            localStorage.setItem('user', JSON.stringify(user));
+
+            setUser(user);
+            setIsAuthenticated(true);
+
+            return { success: true };
+        } catch (error) {
+            return {
+                success: false,
+                error: error.response?.data?.error  || 'Error de conexión'
+            };
+        }
+    };
+
+    //? Funcion logout
+
+    const logout = () => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        setUser(null);
+        setIsAuthenticated(false);
+    };
+
+    //? Funcion register
+
+    const register = async (email, password, name) => {
+        try{
+            const response = await authAPI.register({ email, password, name });
+            const { token, user } = response.data;
+
+            localStorage.setItem('token', token);
+            localStorage.setItem('user', JSON.stringify(user));
+
+            setUser(user);
+            setIsAuthenticated(true);
+
+            return { success: true };
+        } catch (error) {
+            return{
+            success: false,
+            error: error.response?.data?.error  || 'Error de conexión'
+        };
+    }
+};
+
+
+//? Retornar el provider con valor del context
+
+return (
+    <AuthContext.Provider value={{
+        user,
+        isAuthenticated,
+        loading,
+        login,
+        logout,
+        register
+    }}>
+         {children}
+    </AuthContext.Provider>
+
+    );
+};
+
+
+//? Hook personalizado 
+
+export const useAuth = () => {
+    return useContext(AuthContext);
+};
+
+export { AuthContext };
